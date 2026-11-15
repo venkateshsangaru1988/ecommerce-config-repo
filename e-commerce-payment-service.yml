@@ -7,7 +7,7 @@ spring:
   application:
     name: e-commerce-payment-service
 
-datasource:
+  datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ecommerce_db
     username: root
