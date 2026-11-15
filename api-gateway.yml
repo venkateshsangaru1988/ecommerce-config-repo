@@ -1,1 +1,29 @@
+server:
+  port: 2000
 
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+
+            - id: product-service
+              uri: lb://e-commerce-product-service
+              predicates:
+                - Path=/e-commerce-product/**
+
+            - id: stock-service
+              uri: lb://e-commerce-stock-service
+              predicates:
+                - Path=/e-commerce-stock/**
+
+            - id: payment-service
+              uri: lb://e-commerce-payment-service
+              predicates:
+                - Path=/e-commerce-payment/**
+
+            - id: order-history-service
+              uri: lb://e-commerce-order-history-service
+              predicates:
+                - Path=/e-commerce-order-history/**
